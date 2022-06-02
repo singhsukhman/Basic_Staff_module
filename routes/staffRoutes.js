@@ -29,9 +29,6 @@ router.post('/signup' ,(req, res, next) =>{
 
 ///Login
 router.post('/login',(req, res, next) =>{
-    // if (!(req.body.Email && req.body.Password)) {
-    //     return res.status(400).send({ error: "Data not formatted properly" });
-    //   }
    const Emailvalid = joi.object().keys({
     Email : joi.string().required().trim(true).email(),
     Password : joi.string().trim(true).required(),
