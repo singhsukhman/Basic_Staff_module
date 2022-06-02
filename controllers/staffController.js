@@ -5,9 +5,6 @@ const bcrypt = require('bcrypt')
 
 module.exports = {
     SignupStaff: async function (req, res, next) {
-        //  if(!req.body.Name ||  !req.body.UserType || !req.body.Email || !req.body.Password || !req.body.ConfirmPassword || !req.body.Address || !req.body.Phone || !req.body.Country){
-        //      res.status(404).json({message: "Required field Can't be empty"})
-        //  } 
         try {
             var user = await staffService.find({ Email: req.body.Email })
             if(user.length>0){
