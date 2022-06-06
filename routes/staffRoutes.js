@@ -19,7 +19,7 @@ router.post('/signup' ,(req, res, next) =>{
     })
     const {error} = staffRoute.validate(req.body) 
     if(error){
-        res.status(404).send(error.message)
+        res.send(error.message)
         return
     }
     next();
@@ -35,7 +35,7 @@ router.post('/login',(req, res, next) =>{
    })
    const {error} = Emailvalid.validate(req.body) 
     if(error){
-        res.status(404).send(error.message)
+        res.send(error.message)
         return
     }
     next();
@@ -51,7 +51,7 @@ router.get('/profile/:id',(req, res, next) =>{
     })
     const {error} = Idvalidate.validate(req.params)
      if(error){
-         res.status(404).send(error.message)
+         res.send(error.message)
          return
      }
      next();
@@ -65,7 +65,7 @@ router.delete('/delete/:id',(req, res, next) =>{
     })
     const {error} = Idvalidate.validate(req.params)
      if(error){
-         res.status(404).send(error.message)
+         res.send(error.message)
          return
      }
      next();

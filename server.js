@@ -25,3 +25,7 @@ app.use('/apidocs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.listen(port , ()=>{
     console.log(`listoning the port ${port}`);
 })
+
+
+
+module.exports = app;

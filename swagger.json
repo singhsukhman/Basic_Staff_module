@@ -9,7 +9,7 @@
         "url": "https://epitometechnologies.StaffModule/"
       }
     },
-    "host": "localhost:8001",
+    "host": "localhost:8000",
     "basePath": "/api",
     "schemes": [
       "http"
