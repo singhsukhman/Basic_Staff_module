@@ -68,11 +68,11 @@ module.exports = {
         }
     },
     staffData: (req, res, next) => {
-        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-            // console.log('req.params.id', req.params.id)
-            res.json({ message: "Invalid Staff ID" })
-        }
-        staffService.getById({ _id: req.params.id }, function (err, User) {
+        // if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        //     // console.log('req.params.id', req.params.id)
+        //     res.json({ message: "Invalid Staff ID" })
+        // }
+        staffService.getById({ Email: req.params.Email }, function (err, User) {
 
             if (err) {
                 res.status(404).json({
@@ -84,11 +84,30 @@ module.exports = {
     },
 
     // <<<<<<<<<<<<<<--------Delete One User --------------->>>>>>>>>>>>>>>>>>>
+    // deletestaff: function (req, res, next) {
+    //     if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+    //         res.json({ message: "Invalid Staff ID" })
+    //     }
+    //     staffService.deleteOne({ _id: req.params.id }, function (err, user) {
+    //         // console.log(req.params.id);
+    //         // console.log(user);  
+    //         if (err) {
+    //             res.status(404).json({
+    //                 error: err
+    //             })
+    //         }
+    //         res.status(201).json({
+    //             message: "Staff deleted sucessfully", user: user
+    //         })
+    //     })
+    // },
+
     deletestaff: function (req, res, next) {
-        if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
-            res.json({ message: "Invalid Staff ID" })
-        }
-        staffService.deleteOne({ _id: req.params.id }, function (err, user) {
+        // if (!mongoose.Types.ObjectId.isValid(req.params.id)) {
+        //     res.json({ message: "Invalid Staff ID" })
+        // }
+        staffService.deleteOne({ Email: req.params.Email }, function (err, user) {
+            // console.log('req.body.Email: ', req.params.Email);
             // console.log(req.params.id);
             // console.log(user);  
             if (err) {
@@ -101,5 +120,6 @@ module.exports = {
             })
         })
     }
+
 
 }

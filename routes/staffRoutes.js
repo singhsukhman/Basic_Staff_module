@@ -13,7 +13,7 @@ router.post('/signup' ,(req, res, next) =>{
         LastName : joi.string().alphanum().regex(/^[a-zA-Z. ]+$/).min(3).max(20).required(),
         Email : joi.string().trim(true).email().required(),
         Password : joi.string().min(6).trim(true).required(),
-        Phone : joi.number().required(),
+        Phone : joi.string().required(),
         Gender : joi.string().valid("M","F","O"),
         DOB : joi.date().iso()        
     })
@@ -45,9 +45,22 @@ router.post('/login',(req, res, next) =>{
 
 //<<<<<<<-------------Get One user------------->>>>>>>>>>>>>
 
-router.get('/profile/:id',(req, res, next) =>{
+// router.get('/profile/:id',(req, res, next) =>{
+//     const Idvalidate = joi.object({
+//      id: joi.objectId(), 
+//     })
+//     const {error} = Idvalidate.validate(req.params)
+//      if(error){
+//          res.send(error.message)
+//          return
+//      }
+//      next();
+//  }, staffController.staffData)
+
+//  Get Data by Email 
+router.get('/profile/:Email',(req, res, next) =>{
     const Idvalidate = joi.object({
-     id: joi.objectId(), 
+        Email : joi.string().trim(true).email().required(),
     })
     const {error} = Idvalidate.validate(req.params)
      if(error){
@@ -59,9 +72,10 @@ router.get('/profile/:id',(req, res, next) =>{
 
  //<<<<<<<<<<<<----------Delete One User------------->>>>>>>>>>>>>>>>...
 
-router.delete('/delete/:id',(req, res, next) =>{
+router.delete('/delete/:Email',(req, res, next) =>{
     const Idvalidate = joi.object({
-     id: joi.objectId(), 
+    //  id: joi.objectId(), 
+    Email : joi.string().trim(true).email().required(),
     })
     const {error} = Idvalidate.validate(req.params)
      if(error){

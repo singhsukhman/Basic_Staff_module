@@ -9,7 +9,7 @@ const {staffRoutes} = require('./routes/index')
 // dbconfig 
 const {dbconfig} =require('./config/index') 
  
-
+const   {faker} = require('@faker-js/faker');
 
 app.get('/', (req , res )=>{
     res.send('Hello from home  page')
@@ -29,3 +29,6 @@ app.listen(port , ()=>{
 
 
 module.exports = app;
+
+
+  
